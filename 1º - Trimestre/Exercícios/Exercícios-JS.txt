@@ -1,0 +1,51 @@
+/*2. Faça um programa para calcular a média de um aluno, considerando 3 trimestres.*/
+
+var t1,t2,t3;
+
+t1=Number(prompt("Digite a nota do 1º Trimestre: "));
+t2=Number(prompt("Digite a nota do 2º Trimestre: "));
+t3=Number(prompt("Digite a nota do 3º Trimestre: "));
+
+console.log("A média do aluno é: " + (t1+t2+t3)/3);
+
+/*3. Faça um programa que leia a quantidade de vagas ofertadas para cada curso e o
+número de inscritos. Ao final, mostre o total de alunos inscritos, o percentual
+de procura por curso.*/
+
+var v_info,i_info,p_info,v_auto,i_auto,p_auto,v_refr,i_refr,p_refr,v_enfe,i_enfe,p_enfe,ti;
+
+v_info=Number(prompt("Digite a quantidade de vagas para Informática: "));
+i_info=Number(prompt("Digite o número de inscritos em Informática: "));
+p_info=(i_info/v_info)*100;
+
+v_auto=Number(prompt("Digite a quantidade de vagas para Automação: "));
+i_auto=Number(prompt("Digite o número de inscritos em Automação: "));
+p_auto=(i_auto/v_auto)*100;
+
+v_refr=Number(prompt("Digite a quantidade de vagas para Refrigeração: "));
+i_refr=Number(prompt("Digite o número de inscritos em Refrigeração: "));
+p_refr=(i_refr/v_refr)*100;
+
+v_enfe=Number(prompt("Digite a quantidade de vagas para Enfermagem: "));
+i_enfe=Number(prompt("Digite o número de inscritos em Enfermagem: "));
+p_enfe=(i_enfe/v_enfe)*100;
+
+ti=i_info+i_auto+i_refr+i_enfe;
+
+console.log("O total de alunos inscritos é: " + ti + " e o percentual de procura por curso é: " + p_info + "% em Informática, " + p_auto + "% em Automação, " + p_refr + "% em Refrigeração e " + p_enfe + "% em Enfermagem");
+
+/*4. Faça um programa que leia o tamanho de uma lista circular e uma determinada
+posição desta lista. A partir daí o programa deve calcular a próxima posição e a
+posição anterior (considere a posição inicial 0). Ex:Em uma lista de tamanho
+5 (0,1,2,3,4), considerando-se a posição 2, a posição anterior é a 1 e a próxima
+posição é a 3.*/
+
+var t,p,pa,pp;
+
+t=Number(prompt("Digite o tamanho da lista circular: "));
+p=Number(prompt("Digite uma determinada posição da lista: "));
+
+pa=(p+t-1)%t;
+pp=(p+1)%t;
+
+console.log("A posição anterior é: " + pa + " e a próxima posição é: " + pp);

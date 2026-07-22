@@ -1,0 +1,54 @@
+/*1. Os alunos das 3 turmas de 8º ano da escola EDUCAR irão fazer um passeio e, para isto a diretora
+irá contratar o serviço de micro-ônibus. Sabe-se que cada micro-ônibus tem 15 lugares e que
+sempre terá um professor acompanhando cada grupo de alunos.
+Faça um programa que leia o número de alunos em cada turma, calcule e mostre quantos
+micro ônibus serão necessários para levar os alunos e quantos alunos irão no último micro-ônibus
+(considerando que o próximo só começa a encher após a completa lotação do anterior).*/
+
+var t1,t2,t3,qo,auo;
+
+t1=Number(prompt("Digite o número de alunos na turma 1: ")); //30
+t2=Number(prompt("Digite o número de alunos na turma 2: ")); //20
+t3=Number(prompt("Digite o número de alunos na turma 3: ")); //10
+
+qo=Math.ceil((t1+t2+t3)/14) //5
+
+auo=(t1+t2+t3)%14 //4
+
+console.log("Serão necessários: " + qo + " micro-ônibus e irão: " + auo + " alunos no último micro-ônibus");
+
+/*2. Em uma caderneta estão anotados os resultados dos times que participaram do campeonato
+FUTSUL. Para cada time há um espaço para os seguintes dados: o número de pontos (P), o número
+de vitórias (V), o número de empates (E) e o número de derrotas dele no campeonato. Porém, na
+hora de preencher, o funcionário esqueceu de colocar a informação relacionada às vitórias.
+Sabendo-se que cada vitória vale três pontos, cada empate vale um ponto e derrotas não
+valem pontos, sua tarefa é escrever um programa que leia os valores P, E e D, calcule e informe o
+número de vitórias do time.*/
+
+var P,E,D,V;
+
+P=Number(prompt("Digite o número de pontos: "));
+E=Number(prompt("Digite o número de empates: "));
+D=Number(prompt("Digite o número de derrotas: "));
+
+V=Math.floor((P-E)/3);
+
+console.log("O número de vitórias do time é: " + V);
+
+/*3. Faça um programa para somar segundos a uma determinada hora, informada em H, M e S
+(23:55:10 + 90s)*/
+
+var H,M,S,SS,TS,VH,VM,VS;
+
+H=Number(prompt("Digite o tempo em horas: ")); //2
+M=Number(prompt("Digite o tempo em minutos: ")); //1
+S=Number(prompt("Digite o tempo em segundos: ")); //30
+SS=Number(prompt("Digite os segundos que serão somados: ")); //10
+
+TS=H*3600+M*60+S+SS; //7300
+
+VH=Math.floor(TS/3600); //2
+VM=Math.floor(TS%3600/60); //1
+VS=Math.floor(TS%3600%60); //40
+
+console.log("O horário somado a segundos é: " + VH + ":" + VM + ":" + VS); //02:01:40

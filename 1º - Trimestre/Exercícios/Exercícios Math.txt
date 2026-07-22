@@ -1,0 +1,59 @@
+/*1. Dado um número de 3 algarismos N = CDU (onde C é o algarismo das centenas, D é o
+algarismo das dezenas e U o algarismo das unidades), retorne a decomposição deste número.
+Ex: N=321 (3 centenas, 2 dezenas e 1 unidade)*/
+
+var N,C,D,U;
+
+N=Number(prompt("Digite um número de 3 algarismos: "));
+
+C=Math.floor(N/100);
+D=Math.floor((N%100)/10);
+U=Math.floor((N%100)%10);
+
+console.log(C + " Centenas, " + D + " Dezenas e " + U + " Unidades");
+
+/*2. Converta um valor informado em segundos para o formato H:M:S (horas, minutos e segundos).*/
+
+var V,C,D,U;
+
+V=Number(prompt("Digite um valor em segundos: "));
+
+H=Math.floor(V/3600);
+M=Math.floor((V%3600)/60);
+S=Math.floor((V%3600)%60);
+
+console.log(H + "H:" + M + "M:" + S + "S");
+
+/*3. Encontre o valor que está na posição P de um número inteiro N, considerando
+as posições da direita para a esquerda. Ex: N=12345 P=2 (Resultado: 4)*/
+
+???
+
+/*4. Tendo como dados de entrada dois pontos quaisquer no plano, P(x1,y1) e P(x2,y2), escreva
+a distância entre eles, sabendo-se que esta distância é dada por:*/
+
+var x1,y1,x2,y2,d;
+
+x1=Number(prompt("Digite um valor qualquer para x1:"));
+y1=Number(prompt("Digite um valor qualquer para y1:"));
+x2=Number(prompt("Digite um valor qualquer para x2:"));
+y2=Number(prompt("Digite um valor qualquer para y2:"));
+
+d=Math.sqrt((x2-x1)**2 + (y2-y1)**2);
+
+console.log("A distância entre eles é: " + d.toFixed(2));
+
+/*5. Uma companhia de carros paga a seus empregados um salário de R$ 500,00 por mês mais
+uma comissão de R$ 50,00 para cada carro vendido e mais 5% do valor da venda. Elabore um
+programa para calcular e imprimir o salário do vendedor num dado mês recebendo como dados
+de entrada o nome do vendedor, o número de carros vendidos e o valor total das vendas.*/
+
+var n,c,v,s;
+
+n=prompt("Digite o nome do vendedor: ");
+c=Number(prompt("Digite o número de carros vendidos: "));
+v=Number(prompt("Digite o valor total das vendas: "));
+
+s=500+c*50+v*0.5;
+
+console.log("O salário do vendedor é: " + s);

@@ -1,0 +1,188 @@
+//ALGORITMOS -> JS
+
+/*1. Calcule a área de um terreno retangular, a partir das dimensões do terreno.*/
+
+var d1,d2;
+
+d1=Number(prompt("Digite a dimensão 1 do terreno:"));
+d2=Number(prompt("Digite a dimensão 2 do terreno:"));
+
+console.log("A área do terreno retangular é: " + d1*d2);
+
+/*2. Calcule quantos dias de vida tem uma pessoa. O algoritmo deve ler o nome e a idade da
+pessoa (considerando sempre anos completos). Ex: uma pessoa com 15 anos tem 5.475 dias.*/
+
+var nome,idade;
+
+nome=prompt("Digite o nome:");
+idade=Number(prompt("Digite a idade (considerando anos completos):"));
+
+console.log(nome + " com " + idade + " anos tem " + idade*365 + " dias");
+
+/*3. Leia uma temperatura em graus Celsius (C) e apresente-a convertida em graus Farenheit (F).*/
+
+var C,F;
+
+C=Number(prompt("Digite uma temperatura em graus Celsius: "));
+
+F=C*1.8+32;
+
+console.log("A temperatura em graus Farenheit é: " + F);
+
+/*4. Leia uma temperatura em graus Farenheit (F) e apresente-a convertida em graus Celsius (C).*/
+
+var F,C;
+
+F=Number(prompt("Digite uma temperatura em graus Farenheit: "));
+
+C=(F-32)/1.8;
+
+console.log("A temperatura em graus Celsius é: " + C);
+
+/*5. Calcule e apresente o valor do volume de uma lata de óleo.*/
+
+var r,h,v;
+
+r=Number(prompt("Digite o raio:"));
+h=Number(prompt("Digite a altura:"));
+
+v=3.14*(r**2)*h;
+
+console.log("Volume da lata de óleo: " + v);
+
+/*6. Calcular a média ponderada de três notas de um aluno (as notas têm pesos 1, 2 e 7,
+respectivamente).*/
+
+var n1,n2,n3,mp;
+
+n1=Number(prompt("Digite a nota 1:"));
+n2=Number(prompt("Digite a nota 2:"));
+n3=Number(prompt("Digite a nota 3:"));
+
+mp=(n1*1+n2*2+n3*7)/10;
+
+console.log("A média ponderada é: " + mp);
+
+/*7. Efetue o cálculo e a apresentação do valor de uma prestação em atraso, onde o valor original
+da prestação, a taxa mensal de juros e o tempo de atraso (em meses) deve ser informado pelo
+usuário.*/
+
+var vp,tj,tam,pa;
+
+vp=Number(prompt("Digite o valor original da prestação: "));
+tj=Number(prompt("Digite a taxa mensal de juros: "));
+tam=Number(prompt("Digite o tempo de atraso (em meses): "));
+
+pa=vp + (vp/100*tj);
+
+console.log("O valor de uma prestação em atraso é: " + pa);
+
+/*8. Ler o peso de uma pessoa. Calcular e mostrar:
+- o novo peso se a pessoa engordar 15% sobre o peso digitado;
+- o novo peso se a pessoa emagrecer 20% do peso digitado.*/
+
+var p,pg,pe;
+
+p=Number(prompt("Digite o peso da pessoa: "));
+
+pg=p+(p*0.15);
+pe=p-(p*0.20);
+
+console.log("Peso engordado: " + pg + " peso emagrecido: " + pe);
+
+/*9. Apresente o valor da conversão em real (R$) de um valor lido em dólar (US$).*/
+
+var d,r;
+
+d=Number(prompt("Digite um valor em dólar: "));
+
+r=d*5.29;
+
+console.log("O valor da conversão é: " + r.toFixed(2));
+
+/*10. Apresente o valor da conversão em dólar (US$) de um valor lido em real (R$).*/
+
+var r,d;
+
+r=Number(prompt("Digite um valor em real: "));
+
+d=r/5.29;
+
+console.log("O valor da conversão é: " + d.toFixed(2));
+
+/*11. Leia dois valores para as variáveis A e B, e efetue a troca dos valores de forma que a variável
+A passe a possuir o valor da variável B e a variável B passe a possuir o valor da variável A.
+Apresentar os valores trocados.*/
+
+var a,b,aux;
+
+a=Number(prompt("Digite um valor para A:"));
+b=Number(prompt("Digite um valor para B:"));
+
+aux=a;
+a=b;
+b=aux;
+
+console.log("O valor de A é: " + a + " e o valor de B é: " + b);
+
+/*12. Leia dois valores inteiros (variáveis A e B) e apresente o resultado do quadrado da diferença
+do primeiro valor (variável A) pelo segundo valor (variável B).*/
+
+var A,B,R;
+
+A=Number(prompt("Digite um valor para A: "));
+B=Number(prompt("Digite um valor para B: "));
+
+R=(A-B)**2);
+
+console.log("O resultado é: " + R);
+
+/*13. Leia três valores inteiros (representados pelas variáveis A, B e C) e apresente como resultado
+final o valor da soma dos quadrados dos três valores lidos.*/
+
+var A,B,C,R;
+
+A=Number(prompt("Digite um valor para A: "));
+B=Number(prompt("Digite um valor para B: "));
+C=Number(prompt("Digite um valor para C: "));
+
+R=A**2+B**2+C**2;
+
+console.log("A soma dos quadrados é: " + R);
+
+/*14. Leia três valores inteiros (representados pelas variáveis A, B e C) e apresente como resultado
+final o valor do quadrado da soma dos três valores lidos.*/
+
+var A,B,C,R;
+
+A=Number(prompt("Digite um valor para A: "));
+B=Number(prompt("Digite um valor para B: "));
+C=Number(prompt("Digite um valor para C: "));
+
+R=(A+B+C)**2;
+
+console.log("A soma dos quadrados é: " + R);
+
+/*15. Faça a leitura de quatro valores inteiros (variáveis A, B, C e D) e apresente o resultado do
+produto do primeiro com o terceiro valor, e o resultado da soma do segundo com o quarto valor.*/
+
+var A,B,C,D;
+
+A=Number(prompt("Digite um valor para A: "));
+B=Number(prompt("Digite um valor para B: "));
+C=Number(prompt("Digite um valor para C: "));
+D=Number(prompt("Digite um valor para D: "));
+
+console.log("Produto do primeiro com o terceiro valor: " + A*C + " e soma do segundo com o quarto valor: " + (B+D));
+
+/*16. Leia o valor correspondente ao salário mensal de um trabalhador e também o valor do
+percentual de reajuste a ser atribuído. O programa deve apresentar o valor do novo salário.*/
+
+var sm,pr,ns;
+
+sm=Number(prompt("Digite o salário mensal: "));
+pr=Number(prompt("Digite o percentual de reajuste: "));
+
+ns=sm+(sm*pr/100);
+
+console.log("O novo salário é: " + ns);

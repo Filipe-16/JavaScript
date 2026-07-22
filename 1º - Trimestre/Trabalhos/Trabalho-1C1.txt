@@ -1,0 +1,53 @@
+/*1. Um capitão e seus marinheiros encontraram uma arca com uma grande quantidade de moedas
+de ouro idênticas. Para a divisão das moedas foi combinado que:
+• cada marinheiro, exceto o Capitão, deveria receber exatamente o mesmo número de moedas; e
+• o Capitão deveria receber o dobro de moedas que um marinheiro recebe.
+Dados o número de moedas na arca e o número de marinheiros, escreva um programa para
+determinar quantas moedas o capitão recebeu.*/
+
+var mo,ma,mc;
+
+mo=Number(prompt("Digite o número de moedas: "));
+ma=Number(prompt("Digite o número de marinheiros: "));
+
+mc=Math.floor((mo/ma)*2);
+
+console.log("O Capitão receberá: " + mc + " moedas");
+
+/*2. Na instituição EDUCAR o código de matrícula é formado por um número inteiro de 7 dígitos no
+formato AASDDDD, onde:
+- Os dois primeiros dígitos, representados pela letra A, são os dois últimos algarismos do
+ano da matrícula;
+- O terceiro dígito, representado pela letra S, vale 1 ou 2, conforme o aluno tenha se
+matriculado no 1º ou 2º semestre;
+- Os quatro últimos dígitos, representados pela letra D, correspondem à ordem da matrícula
+do aluno, no semestre e no ano em questão.
+Crie um programa que leia o número de matrícula de um aluno e retorne o ano e o semestre
+em que ele foi matriculado.*/
+
+var nm,a,s,sf;
+
+nm=Number(prompt("Digite o número de matrícula no formato: AASDDDD")); //1920001
+
+a=Math.floor(nm/100000); //19
+s=Math.floor(nm/10000); //192
+sf=(s%100)%10; //2
+
+console.log("Ano em que o aluno foi matriculado: " + a + " e o Semestre: " + sf); //19 e 2
+
+/*3. O Banco Inteligente está tentando minimizar o número de notas que o cliente recebe ao realizar um saque.
+Para isto eles precisam de sua ajuda para saber, dado o valor S do saque, qual a menor quantidade de notas que
+a máquina deve fornecer para o cliente, considerando que o banco disponibiliza notas de 5,10,20,50 e 100 reais.
+Por exemplo, se S=235 o banco deverá fornecer N5=1, N10=1, N20=1, N50=0 e N100=2.*/
+
+var S,N100,N50,N20,N10,N5;
+
+S=Number(prompt("Digite o valor do saque: "));
+
+N100=Math.floor(S/100);
+N50=Math.floor((S%100)/50);
+N20=Math.floor(((S%100)%50)/20);
+N10=Math.floor((((S%100)%50)%20)/10);
+N5=Math.floor(((((S%100)%50)%20)%10)/5);
+
+console.log("Serão utilizadas: N5=" + N5 + ", N10=" + N10 + ", N20=" + N20 + ", N50=" + N50 + ", N100=" + N100);

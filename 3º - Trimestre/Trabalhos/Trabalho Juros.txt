@@ -1,0 +1,71 @@
+/*1. Mostrar rendimento de juros simples, composto e fazer um exemplo de aplicação*/
+
+var c,t,tj,js,jc,i;
+
+c=Number(prompt("Digite o capital: "));
+t=Number(prompt("Digite o tempo: "));
+tj=Number(prompt("Digite a taxa: "));
+
+js=c;
+jc=c;
+
+console.log("t" + " " + "js" + " " + "jc");
+console.log("0" + " " + js + " " + jc);
+
+for(i=1;i<=t;i++){
+  js+=c*(tj/100);
+  jc+=js*(tj/100)-1;
+
+  console.log(i + " " + js + " " + jc);
+}
+
+//Exemplo de uma aplicação
+var c,tj,ta,a;
+
+c=Number(prompt("Digite o capital: "));
+tj=Number(prompt("Digite a taxa de juros: "));
+ta=Number(prompt("Digite o tempo de atraso: "));
+
+a=c+(c*(tj/100)*ta);
+
+console.log("Há uma taxa de juros de " + tj + "% e seu débito atual é de R$ " + a.toFixed(2));
+
+/*2. Imagine que um usuario tem um capital para investir e ele cota 2 opções:
+
+  a) Taxa de juros simples;
+  b) Taxa de juros composto;
+
+Faça um programa que solicite o capital a investir e as taxas (simples e composto),
+calcule e verifique qual é a opção mais vantajosa mostrando as informações
+pertinentes e justificando a sua resposta.*/
+
+var c,t,js,tjs,jc,tjc;i;
+
+c=Number(prompt("Digite o capital: "));
+t=Number(prompt("Digite o tempo: "));
+tjs=Number(prompt("Digite a taxa de juros simples: "));
+tjc=Number(prompt("Digite a taxa de juros composto: "));
+
+js=c;
+jc=c;
+
+console.log("js" + "  " + "jc");
+
+for(i=1;i<=t;i++){
+  js+=c*(tjs/100);
+  jc+=js*(tjc/100)-1;
+}
+js=js.toFixed(0);
+jc=jc.toFixed(0);
+
+console.log(js + " " + jc);
+
+if(js>jc){
+  console.log("A opção mais vantajosa é a do juros simples, pois: " + js + ">" + jc);
+}
+else if(js<jc){
+  console.log("A opção mais vantajosa é a do juros composto, pois: " + js + "<" + jc);
+}
+else if(jc==js){
+  console.log("Não há uma opção mais vantajosa, pois: " + js + "=" + jc);
+}

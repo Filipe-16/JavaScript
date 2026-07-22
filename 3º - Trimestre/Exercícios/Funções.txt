@@ -1,0 +1,34 @@
+/*1. Faça um programa que calcule a velocidade média de um corredor que
+percorreu x metros em t segundos, utilizando funções, sabendo que:
+velocidade = distancia/tempo*/
+
+function velocidade_media(x,t){
+  return velocidade=x/t;
+}
+x=Number(prompt("Digite os metros percorridos: "));
+t=Number(prompt("Digite o tempo gasto ao percorrer: "));
+
+console.log("Velocidade Média: " + velocidade_media(x,t) + "m/s");
+
+/*2. Crie uma função que receba como parâmetros o preço de um produto e quanto
+foi pago. A função deve verificar três casos:
+– Se o valor pago é menor que o preço (indique
+quanto falta pagar)
+– Se é igual;
+– Se é maior (indique o troco)*/
+
+function verificar_compra(preco,pago){
+  if(pago<preco){
+    return "O valor pago é menor que o preço\nFalta pagar: " + (preco-pago);
+  }
+  else if(pago==preco){
+    return "O valor pago é igual ao preço";
+  }
+  else if(pago>preco){
+    return "O valor pago é maior que o preço\nTroco: " + (pago-preco);
+  }
+}
+preco=Number(prompt("Digite o preço do produto: "));
+pago=Number(prompt("Digite o valor pago pelo produto: "));
+
+console.log(verificar_compra(preco,pago));

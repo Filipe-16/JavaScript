@@ -1,0 +1,53 @@
+/*Hexa -> Binário*/
+
+var h,hi,d,b;
+
+h=prompt("Digite um número em Hexa: ");
+
+hi="";
+d=0;
+
+//Inverter String
+for(i=h.length-1;i>-1;i--){
+  hi+=h.charAt(i);
+}
+
+//Hexa -> Decimal
+for(i=0;i<hi.length;i++){
+  if(hi.charAt(i)=="A"){
+    d+=10*16**i;
+  }
+  else if(hi.charAt(i)=="B"){
+    d+=11*16**i;
+  }
+  else if(hi.charAt(i)=="C"){
+    d+=12*16**i;
+  }
+  else if(hi.charAt(i)=="D"){
+    d+=13*16**i;
+  }
+  else if(hi.charAt(i)=="E"){
+    d+=14*16**i;
+  }
+  else if(hi.charAt(i)=="F"){
+    d+=15*16**i;
+  }
+  else{
+    d+=Number(hi.charAt(i))*16**i;
+  }
+}
+//Decimal -> Binário
+d=d*2;
+b="";
+
+while(d>=2){
+  di=Math.floor(d/=2);
+  r=di%2;
+  b+=r;
+}
+ib="";
+
+for(i=b.length-1;i>-1;i--){
+  ib+=b.charAt(i);
+}
+console.log(ib);

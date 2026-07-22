@@ -1,0 +1,118 @@
+INTRODUÇÃO À PROGRAMAÇÃO – EXAME
+
+/*1. (3,0) Criar um programa para calcular a quantidade de dias entre duas datas válidas d1 e d2
+armazenadas como strings na forma "dia/mes/ano", sendo d1 anterior ou igual a d2 (e considerando
+meses de 30 dias).*/
+
+var d1,ad1,md1,dd1,rd1,d2,ad2,md2,dd2,rd2,qd;
+
+d1=prompt("Digite uma data na forma: dia/mes/ano: (meses de 30 dias) ");
+d2=prompt("Digite uma data depois/igual a primeira na forma (dia/mes/ano): (meses de 30 dias) ");
+
+ad1=Number(d1.slice(6,10)) * 365;
+md1=Number(d1.slice(3,5)) * 30;
+dd1=Number(d1.slice(0,2));
+
+rd1=dd1 + md1 + ad1;
+
+ad2=Number(d2.slice(6,10)) * 365;
+md2=Number(d2.slice(3,5)) * 30;
+dd2=Number(d2.slice(0,2));
+
+rd2=dd2 + md2 + ad2;
+
+qd=rd2 - rd1;
+
+console.log("A quantidade de dias entre as duas datas é: " + qd);
+
+/*2. (3,0) Criar um programa para uma revenda de carros que lê modelo, ano de fabricação e o preço
+do veículo (valor que o proprietário deseja receber por ele). Em seguida o programa deve classificálo como “Novo” (do ano atual), “Seminovo” (até 2 anos de uso) ou “Usado”. Também deve apresentar
+o preço de venda do veículo com um acréscimo de 8% no preço dos veículos novos ou de 10% no
+preço dos veículos classificados como seminovos ou usados.*/
+
+var m,f,p,pv;
+
+m=prompt("Digite o modelo do veículo: ");
+f=Number(prompt("Digite o ano de fabricação do veículo: "));
+p=Number(prompt("Digite o valor que o proprietário deseja receber pelo veículo: "));
+
+if(f==2022){
+    console.log("Novo");
+    pv=p + (p*0.08);
+}
+else if(f==2021 || f==2020){
+    console.log("Seminovo");
+    pv=p + (p*0.10);
+}
+else{
+    console.log("Usado");
+    pv=p + (p*0.10);
+}
+console.log("O preço de venda do veículo: é " + pv);
+
+/*3. (4,0) Criar um programa para o jogo “Descubra a palavra” que deverá ter palavras e dicas para
+as palavras “pré-cadastradas” (utilizar 10 palavras e dicas). Ao iniciar o jogo, uma palavra é sorteada
+e apresentada ao jogador através de traços (de acordo com o seu total de letras). O jogador deverá
+tentar adivinhar as letras que compõem a palavra, tendo 6 chances de erro. Quando uma letra for
+acertada deverá ser mostrada na posição em que ocupa na palavra e quando estiver errada deverá
+ser mostrada em uma lista de erros, juntamente com o total de chances que o usuário ainda possui.
+Quando restar 2 chances deverá ser mostrada a dica para o usuário. O jogo termina quando a
+palavra for acertada ou esgotarem as chances do usuário. (utilizar funções).*/
+
+var bd,s,v1,v2,p,f1,ep,eps,le,d,l,c,i,f2;
+
+function sortear_palavra(){
+    bd=",mito,gato,alto,fato,zico,fone,fase,auge,base,amor,";
+
+    s=Math.floor(Math.random()*45);
+    v1=bd.indexOf(",",s);
+    v2=bd.indexOf(",",v1+1);
+    p=bd.slice(v1+1,v2);
+    
+    return p;  
+}
+f1=sortear_palavra();
+
+ep=["_","_","_","_"];
+
+eps="";
+le="";
+d="";
+l="";
+
+function advinhar_palavra(){
+    for(c=5;c>=0 && eps!=f1;c--){
+        l=prompt("Digite uma letra: " + ep.join("") + d + "\n" + c + " chances restantes\n" + "Lista de erros: " + le).toLowerCase();
+    
+        if(f1.indexOf(l)!=-1 && l!=""){
+          for(i=0;i<4;i++){
+            ep[f1.indexOf(l)]=f1.charAt(f1.indexOf(l));
+          }
+            eps=ep.join("").toString();
+        }
+        else if(f1.indexOf(l)==-1){
+            le+=l;
+        }
+    
+        if(c==3){
+            if(p.endsWith("o")==true){
+                d="\nDica: A palavra termina com o";
+            }
+            else if(p.endsWith("e")==true){
+                d="\nDica: A palavra termina com e";
+            }
+            else{
+                d="\nDica: A palavra termina com r";
+            }
+        }
+    }
+return eps;
+}
+f2=advinhar_palavra();
+
+if(f2==f1){
+    console.log("Parabéns Você Ganhou!!!");
+}
+else if(f2!=f1){
+    console.log("Você Perdeu!!!");
+}

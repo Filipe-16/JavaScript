@@ -1,0 +1,323 @@
+/*1. Escreva um programa que codifica palavras da língua inglesa em Pig Latin. O Pig Latin é uma
+forma de linguagem codificada utilizada por diversão. Existem muitas variações nos métodos
+utilizados para formar palavras em Pig Latin. Para simplificar, utilize o seguinte método.
+Para traduzir uma palavra em inglês para uma palavra em Pig Latin, coloque a primeira letra
+da palavra em inglês no final da palavra e adicione as letras “ay”. Assim, a palavra “jump” torna-se
+“umpjay”, a palavra “the” torna-se “hetay” e a palavra “computer” torna-se “omputercay”.*/
+
+var p;
+
+p=prompt("Digite uma palavra em inglês: "); //jump
+
+console.log(p.slice(1) + p.charAt(0) + "ay"); //umpjay
+
+/*2.0 Escreva um programa que leia uma frase. O programa deve mostrar a primeira letra
+de cada palavra em maiúsculo.*/
+
+var f,pi,ui,di,df,im,i;
+
+im="";
+
+f=prompt("Digite uma frase: ").toLowerCase();
+
+pi=f.charAt(0).toUpperCase() + f.slice(1,f.indexOf(" ")+1);
+ui=f.charAt(f.lastIndexOf(" ")+1).toUpperCase() + f.slice(f.lastIndexOf(" ")+2);
+
+for(i=0;i<f.length;i++){
+  if(f.charAt(i)==" "){
+    di=f.substring(i).trim();
+    df=di.substring(0,di.indexOf(" "));
+    im+=df.charAt(0).toUpperCase() + df.slice(1) + " ";
+  }
+}
+console.log(pi + im.trim() + " " + ui);
+
+/*2.1 Escreva um programa que leia uma palavra ou frase e também leia uma letra. O programa deve
+mostrar quantas vezes a letra aparece na palavra ou frase.*/
+
+var s,l,ql;
+
+ql=0;
+
+s=prompt("Digite uma string: ");
+l=prompt("Digite uma letra presente na string: ");
+
+for(i=0;i<s.length;i++){
+  if(s.charAt(i)==l){
+    ql+=1;
+  }
+}
+if(ql==1){
+  console.log("A letra aparece: " + ql + " vez");
+}
+else if(ql!=1){
+  console.log("A letra aparece: " + ql + " vezes");
+}
+
+/*3. Escreva um programa que leia uma palavra sem acentos e cedilha e mostre essa palavra em
+letras minúsculas, com a primeira letra em maiúsculo.*/
+
+var p;
+
+p=prompt("Digite uma palavra: ").toLowerCase();
+
+p=p.replaceAll("á","a").replaceAll("à","a").replaceAll("ã","a").replaceAll("â","a");
+p=p.replaceAll("é","e").replaceAll("è","e").replaceAll("ê","e");
+p=p.replaceAll("í","i").replaceAll("ì","i").replaceAll("î","i");
+p=p.replaceAll("ó","o").replaceAll("ò","o").replaceAll("õ","o").replaceAll("ô","o");
+p=p.replaceAll("ú","u").replaceAll("ù","u").replaceAll("û","u");
+p=p.replaceAll("ç","c");
+
+console.log(p.charAt(0).toUpperCase() + p.slice(1));
+
+/*4. Escreva um programa que leia o código DDD e um número de telefone e monte uma
+String em que D representa um dígito do DDD e N um dígito do número de telefone no
+formato:
+  (DD) NNNN-NNNN*/
+
+var DDD,N;
+
+DDD=prompt("Digite o DDD: ");
+N=prompt("Digite o número de telefone: ");
+
+console.log("(" + DDD + ")" + " " + N.slice(0,5) + "-" + N.slice(5,9));
+
+/*5. Escreva um programa que leia um String contendo um número de telefone no formato
+(DD) DDDD-DDDD
+Em que D representa um dígito do número (o que está entre parênteses é o número do DDD). O
+programa deve verificar se o número está escrito de forma correta (pode haver um número de
+espaços em branco qualquer entre o número de DDD e o número do telefone. Caso o número não
+tenha sido digitado corretamente, o programa deve mostrar uma mensagem “Número de telefone
+incorreto.”. Caso contrário, o programa deve colocar o número do DDD em uma variável int e o
+número do telefone em outra variável int. O conteúdo de cada uma das variáveis deve ser mostrado
+na tela, separadamente.*/
+
+/*6. Escreva um programa que é capaz de gerar o plural de algumas palavras em inglês. O programa
+deve ler uma palavra, convertê-la para letras minúsculas, e mostrar seu plural na tela. Utilize as
+seguintes regras para o plural:
+• A regra geral para o plural é acrescentar um 's' no final da palavra. Exemplos:
+◦ book = books
+◦ girl = girls
+◦ day = days
+• Para palavras terminadas em 'o', 'ch', 'sh', 'ss', 'x' e 'z', forma-se o plural acrescentando 'es'
+ao final da palavra. Exemplos:
+◦ tomato = tomatoes
+◦ church = churches
+◦ brush = brushes
+◦ glass = glasses
+◦ box = boxes
+◦ buzz = buzzes
+• Palavras terminadas em 'y', precedidos de consoante, perdem o 'y' e recebem 'ies' no final.
+Exemplos:
+◦ country = countries
+◦ family = families*/
+
+var p,pn;
+
+p=prompt("Digite uma palavra em inglês: ").toLowerCase();
+
+pn=p.charAt(p.length-2);
+
+p=p.replaceAll("á","a").replaceAll("à","a").replaceAll("ã","a").replaceAll("â","a");
+p=p.replaceAll("é","e").replaceAll("è","e").replaceAll("ê","e");
+p=p.replaceAll("í","i").replaceAll("ì","i").replaceAll("î","i");
+p=p.replaceAll("ó","o").replaceAll("ò","o").replaceAll("õ","o").replaceAll("ô","o");
+p=p.replaceAll("ú","u").replaceAll("ù","u").replaceAll("û","u");
+
+//Palavras terminadas em 'o', 'ch', 'sh', 'ss', 'x' e 'z'
+if(p.endsWith("o") || p.endsWith("ch") || p.endsWith("sh") || p.endsWith("ss") || p.endsWith("x") || p.endsWith("z")){
+  console.log(p + "es");
+}
+//Palavras terminadas em 'y', precedidos de consoante
+else if(p.endsWith("y") && pn!="a" && pn!="e" && pn!="i" && pn!="o" && pn!="u"){
+  console.log(p.slice(0,p.length-1) + "ies");
+}
+else{
+    console.log(p + "s");
+}
+
+/*7. As datas são impressas em vários formatos comuns. Dois dos formatos mais comuns são:
+25/04/1955 e 25 de abril de 1955
+Escreva um programa que lê uma data no primeiro formato (como String) e mostre essa data no
+segundo formato.*/
+
+var d,m;
+
+d=prompt("Digite uma data no formato: DD/MM/AAAA");
+
+if(d.slice(3,5)=="01"){
+  m=" de Janeiro de ";
+}
+if(d.slice(3,5)=="02"){
+  m=" de Fevereiro de ";
+}
+if(d.slice(3,5)=="03"){
+  m=" de Março de ";
+}
+if(d.slice(3,5)=="04"){
+  m=" de Abril de ";
+}
+if(d.slice(3,5)=="05"){
+  m=" de Maio de ";
+}
+if(d.slice(3,5)=="06"){
+  m=" de Junho de ";
+}
+if(d.slice(3,5)=="07"){
+  m=" de Julho de ";
+}
+if(d.slice(3,5)=="08"){
+  m=" de Agosto de ";
+}
+if(d.slice(3,5)=="09"){
+  m=" de Setembro de ";
+}
+if(d.slice(3,5)=="10"){
+  m=" de Outubro de ";
+}
+if(d.slice(3,5)=="11"){
+  m=" de Novembro de ";
+}
+if(d.slice(3,5)=="12"){
+  m=" de Dezembro de ";
+}
+console.log(d.replaceAll(d.slice(2,6),m));
+
+/*8. Escreva um programa que leia uma data no formato DD/MM/AAAA como String e diga se a data
+é válida ou não. Uma data válida deve ter tamanho 10, possuir dígitos numéricos para D, M e A e
+conter /, - ou um ponto final separando dia, mês e ano. O valor do mês deve estar entre 1 e 12 e o
+dia deve ser um número entre 1 e o número máximo de dias do mês.*/
+
+var d,rs,dn,m,di,dv,a,i;
+
+d=prompt("Digite uma data no formato: DD/MM/AAAA");
+
+rs=d.replaceAll("/","").replaceAll("-","").replaceAll(".","");
+
+dn="";
+
+for(i=0;i<d.length;i++){
+   if(rs.charCodeAt(i)>=48 && rs.charCodeAt(i)<=57){
+        dn+=rs.charAt(i);
+  }
+}
+m=d.slice(3,5);
+
+if(m=="01" || m=="02" || m=="03" || m=="04" || m=="05" || m=="06" || m=="07" || m=="08" || m=="09" || m=="10" || m=="11" || m=="12"){
+  mv="Válido";
+}
+else{
+  mv="Inválido";
+}
+di=Number(d.slice(0,2));
+
+if(m=="01" || m=="03" || m=="05" || m=="07" || m=="08" || m=="10" || m=="12"){
+  if(di>=1 && di<=31){
+    dv="Válido";
+  }
+  else{
+    dv="Inválido";
+  }
+}
+if(m=="04" || m=="06" || m=="09" || m=="11"){
+  if(di>=1 && di<=30){
+    dv="Válido";
+  }
+  else{
+    dv="Inválido";
+  }
+}
+a=Number(d.slice(6,10));
+
+if(m=="02" && a%4==0){
+  if(di>=1 && di<=29){
+    dv="Válido";
+  }
+  else{
+    dv="Inválido";
+  }
+}
+else if(m=="02" && a%4!=0){
+  if(di>=1 && di<=28){
+    dv="Válido";
+  }
+  else{
+    dv="Inválido";
+  }
+}
+if(dn.length==8 && d.charAt(2)=="/" && d.charAt(5)=="/" && mv=="Válido" && dv=="Válido"|| dn.length==8 && d.charAt(2)=="-" && d.charAt(5)=="-"  && mv=="Válido" && dv=="Válido"|| dn.length==8 && d.charAt(2)=="." && d.charAt(5)=="." && mv=="Válido" && dv=="Válido"){
+  console.log("A data é válida");
+}
+else{
+  console.log("A data não é válida");
+}
+
+/*9. Escreva um programa que verifique se uma string é ou não um palíndromo (ou seja, se o inverso
+da cadeia é igual a ela).
+Exemplos:
+RADAR
+LUZ AZUL
+ROMA ME TEM AMOR*/
+
+var s,l,il,i;
+
+l="";
+
+s=prompt("Digite uma string: ").toLowerCase();
+
+s=s.replaceAll("á","a").replaceAll("à","a").replaceAll("ã","a").replaceAll("â","a");
+s=s.replaceAll("é","e").replaceAll("è","e").replaceAll("ê","e");
+s=s.replaceAll("í","i").replaceAll("ì","i").replaceAll("î","i");
+s=s.replaceAll("ó","o").replaceAll("ò","o").replaceAll("õ","o").replaceAll("ô","o");
+s=s.replaceAll("ú","u").replaceAll("ù","u").replaceAll("û","u");
+s=s.replaceAll("ç","c");
+
+for(i=0;i<s.length;i++){
+  if(s.charCodeAt(i)>=97 && s.charCodeAt(i)<=122){
+    l+=s.charAt(i);
+  }
+}
+il="";
+
+for(i=l.length-1;i>-1;i--){
+  il+=l.charAt(i);
+}
+if(l==il){
+  console.log("É um palíndromo");
+}
+else if(l!=il){
+  console.log("Não é um palíndromo");
+}
+
+/*10. Escreva um programa que, a partir de um nome informado pelo usuário, exiba suas iniciais. As
+iniciais são formadas pela primeira letra de cada nome, sendo que todas deverão aparecer em
+maiúsculas na saída do programa. Note que os conectores e, do, da, dos, das, de, di, du não são
+considerados nomes e, portanto, não devem ser considerados para a obtenção das iniciais. As
+iniciais devem ser impressas em maiúsculas, ainda que o nome seja entrado todo em minúsculas.
+Exemplos:
+Maria das Graças Pimenta => MGP
+João Carlos dos Santos => JCS
+José da Silva => JS
+Pedro Pereira Teixeira => PPT*/
+
+var n,pi,i;
+
+pi="";
+
+p=prompt("Digite um nome: ").toUpperCase();
+
+p=p.replaceAll(" E "," ");
+p=p.replaceAll(" DO "," ");
+p=p.replaceAll(" DOS "," ");
+p=p.replaceAll(" DA "," ");
+p=p.replaceAll(" DAS "," ");
+p=p.replaceAll(" DE "," ");
+p=p.replaceAll(" DI "," ");
+p=p.replaceAll(" DI "," ");
+
+for(i=0;i<p.length;i++){
+  if(p.charAt(i)==" "){
+    pi+=p.charAt(i+1);
+  }
+}
+console.log(p.charAt(0) + pi);

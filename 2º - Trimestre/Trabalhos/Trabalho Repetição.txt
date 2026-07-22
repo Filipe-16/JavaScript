@@ -1,0 +1,23 @@
+/*1. MDC*/
+
+var n1,n2,mdc;
+
+mdc=0;
+
+n1=Number(prompt("Digite o número 1:")); //8
+n2=Number(prompt("Digite o número 2:")); //12
+
+for(i=0;i<=Math.min(n1,n2);i++){
+  if(n1%i==0 && n2%i==0){
+    mdc=i;
+  }
+}
+console.log("O MDC é: " + mdc);
+
+/*2. N-ésimo*/
+
+var p;
+
+p=Number(prompt("Digite a posição da sequência:"));
+
+console.log("O N-ésimo termo é: " + 2**(p-1));

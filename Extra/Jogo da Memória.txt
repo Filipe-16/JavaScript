@@ -1,0 +1,140 @@
+var nd,al,ac,tj,ol,oc,t,m,e,p,sp,n,sn,f,i,vl,ji,jp,j1,j2,j,g,t,l,c,jn,oj;
+
+jn='';
+
+while(jn!='n'){
+  t='1';
+  g='2';
+
+  alert(nd=prompt('Digite o nível de dificuldade:\n1. 4x4 - 16 Peças\n2. 4x8 - 32 Peças\n3. 8x8 - 64 Peças'));
+
+  if(nd==1){
+    al=1;
+    ac=1;
+    tj=1;
+
+    ol='(0-3)';
+    oc='(0-3)';
+
+    m=[[],[],[],[]];
+    e=[[],[],[],[]];
+  }
+
+  else if(nd==2){
+    al=1;
+    ac=2;
+    tj=2;
+    
+    ol='(0-3)';
+    oc='(0-7)';
+
+    m=[[],[],[],[]];
+    e=[[],[],[],[]];
+  }
+  else if(nd==3){
+    al=2;
+    ac=2;
+    tj=4;
+
+    ol='(0-7)';
+    oc='(0-7)';
+
+    m=[[],[],[],[],[],[],[],[]];
+    e=[[],[],[],[],[],[],[],[]];
+  }
+ 
+  p=[];
+  n=[];
+
+  while(p.length<16*tj || n.length<8*tj){
+    sp=Math.floor(Math.random()*16*tj);
+    sn=Math.ceil(Math.random()*8*tj);
+
+    if(p.indexOf(sp)==-1){
+      p.push(sp);
+    }
+    else{
+      sp=Math.floor(Math.random()*16*tj);
+    }
+
+    if(n.indexOf(' ' + sn + ' ')==-1){
+      n.push(' ' + sn + ' ');
+    }
+    else{
+      sn=Math.ceil(Math.random()*8*tj);
+    }
+  }
+
+  n=n.concat(n);
+
+  f=[];
+
+  for(i=0;i<16*tj;i++){
+    f[p[i]]=n[i];
+  }
+
+  for(vl=0;vl<4*al;vl++){
+    for(i=0;i<4*ac;i++){
+      m[vl][i]=f[i+4*ac*vl];
+
+      e[vl][i]='⬜';
+    }
+  }
+
+  ji='';
+  jp='';
+  j1='';
+  j2='';
+  j='';
+
+  i=0;
+
+  g=m.join('\n').replaceAll(',','');
+
+  while(t!=g){
+    t=e.join('\n').replaceAll(',','');
+
+    j=prompt('Digite a linha ' + ol + ' e coluna ' + oc + '\n' + t + '\nPara Desistir Digite SHIFT + 8');
+
+    if(j=='*'){
+      jn=prompt('Você Desistiu!!!\nQuer Jogar Novamente? (s/n)');
+        break;
+    }
+
+    i++;
+
+    l=j[0];
+    c=j[1];
+
+    if(i%2!=0){
+      ji=j;
+      j1=m[l][c];
+
+      e[l][c]=m[l][c];
+    }
+
+    else if(i%2==0){
+      jp=j;
+      j2=m[l][c];
+
+      e[l][c]=m[l][c];
+
+      t=e.join('\n').replaceAll(',','');
+
+      if(j1==j2){
+        alert('Acertou\n' + t);
+      }
+
+      else if(j1!=j2){
+        alert('Errou\n' + t);
+
+        e[ji[0]][ji[1]]='⬜';
+        e[jp[0]][jp[1]]='⬜';
+      }
+    }
+
+    if(t==g){
+      jn=prompt('Parabéns Você Terminou O Jogo Da Memória!!! 😎\nQuer Jogar Novamente? (s/n)');
+    }
+  }
+}
