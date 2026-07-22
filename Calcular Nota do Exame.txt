@@ -1,0 +1,11 @@
+var n, i, ef;
+
+n = 0;
+
+for (i = 1; i < 4; i++) {
+    n += Number(prompt("Digite a nota do " + i + " Trimestre"));
+}
+
+ef = ((n*0.6)/3-5)/0.4*-1;
+
+console.log("Você precisa tirar: " + ef.toFixed(1) + " para passar");
