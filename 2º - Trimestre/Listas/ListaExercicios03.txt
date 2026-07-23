@@ -137,20 +137,20 @@ for(i=0;i<=15;i++){
 N! = 1 x 2 x 3 x ... x (N - 1) x N
 0! = 1, por definição*/
 
-var n,f,i;
+var n,i,f;
 
-f=1;
+n=Number(prompt("Digite um número:"))
 
-n=Number(prompt("Digite um número: "));
-
-if(n==0){
-  console.log("Fatorial é 1, por definição");
+f=1
+    
+if(n%1==0 && n>-1){
+    for(i=1;i<n;i++){
+        f*=i+1
+    }
+    console.log("o fatorial de n é: " + f)
 }
 else{
-  for(i=1;i<=n;i++){
-    f*=i;
-  }
-  console.log(f);
+    console.log("Não existe fatorial para este número") 
 }
 
 /*12. Sendo H = 1 + 1/2 + 1/3 + 1/4 + ... + 1/N, calcular o número H. O número N é fornecido pelo
