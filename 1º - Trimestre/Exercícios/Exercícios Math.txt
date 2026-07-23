@@ -32,7 +32,7 @@ var n, p, v
 n = parseInt(prompt("Digite um número: "))
 p = Number(prompt("Digite a posição do valor: "))
 
-v = parseInt( ( (n%10**p) /10**p) * 10)
+v = parseInt(((n%10**p) / 10**p) * 10)
 
 console.log("Resultado: " + v)
 
