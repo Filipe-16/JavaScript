@@ -27,7 +27,14 @@ console.log(H + "H:" + M + "M:" + S + "S");
 /*3. Encontre o valor que está na posição P de um número inteiro N, considerando
 as posições da direita para a esquerda. Ex: N=12345 P=2 (Resultado: 4)*/
 
-???
+var n, p, v
+
+n = parseInt(prompt("Digite um número: "))
+p = Number(prompt("Digite a posição do valor: "))
+
+v = parseInt( ( (n%10**p) /10**p) * 10)
+
+console.log("Resultado: " + v)
 
 /*4. Tendo como dados de entrada dois pontos quaisquer no plano, P(x1,y1) e P(x2,y2), escreva
 a distância entre eles, sabendo-se que esta distância é dada por:*/
